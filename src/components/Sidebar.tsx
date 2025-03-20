@@ -1,4 +1,4 @@
-import { X, Home, Grid, BarChart, Settings } from "lucide-react";
+import { X, Home, BarChart, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // Define props types for the sidebar
