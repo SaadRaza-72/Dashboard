@@ -6,6 +6,13 @@ interface SidebarProps {
   setIsSidebarOpen: (isOpen: boolean) => void;
 }
 
+// Sample user data (could come from props or context in the future)
+const user = {
+  name: "Marquez",
+  email: "marquezzz@mail.com",
+  profilePic: "/download.jpeg",
+};
+
 const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) => {
   return (
     <>
@@ -29,38 +36,66 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) =>
         >
           <X size={28} />
         </button>
+
+        {/* User Profile Section */}
         <div className="text-center mb-6">
-          <div className="relative w-20 h-20 mx-auto">
-            <img src="/download.jpeg" alt="Profile" className="w-20 h-20 rounded-full border-2 border-gray-300 dark:border-gray-700 mt-20" />
+          <div className="relative w-24 h-24 mx-auto">
+            <img
+              src={user.profilePic}
+              alt="Profile"
+              className="w-24 h-24 rounded-full border-2 border-gray-300 dark:border-gray-700 mt-10"
+            />
             <span className="absolute top-0 right-0 bg-orange-500 p-1 rounded-full">
               <Settings size={16} className="text-white" />
             </span>
           </div>
-          <h2 className="mt-3 text-lg font-semibold text-gray-800 dark:text-white">Hello, <span className="font-bold">Marquez</span></h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">marquezzz@mail.com</p>
+          <h2 className="mt-3 text-lg font-semibold text-gray-800 dark:text-white">
+            Hello, <span className="font-bold">{user.name}</span>
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{user.email}</p>
         </div>
 
-        {/* Sidebar Title */}
+        {/* Sidebar Menu Title */}
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Menu</h1>
 
         {/* Navigation Menu */}
         <nav className="mt-6">
           <ul className="space-y-4">
-            <li className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer">
-              <Home size={20} />
-              <Link to="/"><span>Dashboard</span></Link>
+            <li>
+              <Link
+                to="/"
+                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer transition"
+              >
+                <Home size={20} />
+                <span>Dashboard</span>
+              </Link>
             </li>
-            <li className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer">
-              <Grid size={20} />
-              <span><Link to="/about">Apps</Link></span>
+            <li>
+              <Link
+                to="/about"
+                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer transition"
+              >
+                <Grid size={20} />
+                <span>Apps</span>
+              </Link>
             </li>
-            <li className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer">
-              <BarChart size={20} />
-              <span><Link to="/Charts">Charts</Link></span>
+            <li>
+              <Link
+                to="/charts"
+                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer transition"
+              >
+                <BarChart size={20} />
+                <span>Charts</span>
+              </Link>
             </li>
-            <li className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer">
-              <Settings size={20} />
-              <span>Settings</span>
+            <li>
+              <Link
+                to="/settings"
+                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer transition"
+              >
+                <Settings size={20} />
+                <span>Settings</span>
+              </Link>
             </li>
           </ul>
         </nav>

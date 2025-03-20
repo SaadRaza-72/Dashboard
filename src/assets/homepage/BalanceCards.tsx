@@ -1,4 +1,3 @@
-import React from "react";
 import { Bitcoin } from "lucide-react";
 
 const balanceCards = [

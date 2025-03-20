@@ -1,4 +1,3 @@
-import React from "react";
 import { ChevronDown, ArrowDown, ArrowUp } from "lucide-react";
 
 const QuickTrade = () => {

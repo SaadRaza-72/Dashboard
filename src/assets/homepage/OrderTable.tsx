@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDown, MoreVertical } from "lucide-react";
 
 const sellOrders = [

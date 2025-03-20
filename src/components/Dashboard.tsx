@@ -1,7 +1,7 @@
 import { useState } from "react";
-import TopBar from "./TopBar";
 import Sidebar from "./Sidebar";
 import Home from "../assets/homepage/Home";
+import TopBar from "./topbar";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

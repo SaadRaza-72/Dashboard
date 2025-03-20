@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { JSX, useState } from "react";
 import { Bitcoin, ChevronDown } from "lucide-react";
 
 // Custom icons for missing cryptocurrencies
@@ -12,7 +12,19 @@ const MoneroIcon = () => (
   <img src="./png.png" alt="Monero" className="w-5 h-5" />
 );
 
-const transactions = [
+// Define types for transactions
+type TransactionStatus = "Completed" | "Pending" | "Canceled";
+
+interface Transaction {
+  id: number;
+  type: string;
+  time: string;
+  amount: string;
+  status: TransactionStatus;
+  tab: string;
+}
+
+const transactions: Transaction[] = [
   { id: 1, type: "Bitcoin", time: "06:24:45 AM", amount: "+$5,553", status: "Completed", tab: "monthly" },
   { id: 2, type: "Ethereum", time: "06:24:45 AM", amount: "+$5,553", status: "Pending", tab: "weekly" },
   { id: 3, type: "Monero", time: "06:24:45 AM", amount: "-$912", status: "Canceled", tab: "today" },
@@ -24,14 +36,14 @@ const transactions = [
 ];
 
 // Use correct icons
-const icons = {
+const icons: Record<string, JSX.Element> = {
   Bitcoin: <Bitcoin className="text-yellow-500" size={20} />,
   Ethereum: <EthereumIcon />,
   Monero: <MoneroIcon />,
   Litecoin: <LitecoinIcon />,
 };
 
-const statusColors: Record<"Completed" | "Pending" | "Canceled", string> = {
+const statusColors: Record<TransactionStatus, string> = {
   Completed: "bg-green-100 text-green-600",
   Pending: "bg-gray-200 text-gray-600",
   Canceled: "bg-red-100 text-red-600",
