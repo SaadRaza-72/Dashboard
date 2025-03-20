@@ -1,12 +1,13 @@
 import { X, Home, Grid, BarChart, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Define props types for the sidebar
 interface SidebarProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (isOpen: boolean) => void;
 }
 
-// Sample user data (could come from props or context in the future)
+// Sample user data
 const user = {
   name: "Marquez",
   email: "marquezzz@mail.com",
@@ -68,15 +69,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) =>
               >
                 <Home size={20} />
                 <span>Dashboard</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-orange-500 cursor-pointer transition"
-              >
-                <Grid size={20} />
-                <span>Apps</span>
               </Link>
             </li>
             <li>
