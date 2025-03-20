@@ -1,7 +1,7 @@
 import { useState } from "react";
-import TopBar from "../../components/topbar";
 import Sidebar from "../../components/Sidebar";
 import ChartsHead from "./ChartsHead";
+import TopBar from "../../components/Topbar";
 
 const Charts = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
